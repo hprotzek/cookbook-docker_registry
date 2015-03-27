@@ -2,9 +2,8 @@
 # vi: set ft=ruby :
 
 Vagrant.configure('2') do |config|
-  config.vm.hostname = 'docker_registry'
-  config.vm.box = 'ubuntu-12.04'
-  config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_#{config.vm.box}_chef-provisionerless.box"
+  config.vm.hostname = "dockerregistry"
+  config.vm.box = "chef/ubuntu-14.04"
   config.omnibus.chef_version = 'latest'
   config.berkshelf.enabled = true
 
@@ -13,7 +12,8 @@ Vagrant.configure('2') do |config|
     }
 
     chef.run_list = [
-        'recipe[docker_registry::default]'
+        'recipe[docker_registry::install]',
+        'recipe[docker_registry::webui]'
     ]
   end
 end

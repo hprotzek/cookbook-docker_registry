@@ -20,8 +20,8 @@ end
 
 docker_container 'atcol/docker-registry-ui' do
   detach true
-  port "#{node[:docker_registry][:config][:listen_port]}:8080"
-  env "REG1=http://#{node[:docker_registry][:config][:listen_ip]}:#{node[:docker_registry][:config][:listen_port]}/v1/"
+  port "#{node[:docker_registry][:ui][:listen_port]}:8080"
+  env "REG1=http://#{node[:docker_registry][:ui][:listen_ip]}:#{node[:docker_registry][:ui][:listen_port]}/v1/"
   volume "#{node[:docker_registry][:ui][:config_dir]}:/var/lib/h2"
   tag 'latest'
 end

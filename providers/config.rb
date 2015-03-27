@@ -39,7 +39,7 @@ action :create do
   when 'pip'
     tpl = template "#{dr[:path]}/config/config.yml" do
       source "#{dr[:storage_driver]}_config.yml.erb"
-      cookbook dr[:templates_cookbook]
+      cookbook dr[:template_cookbook]
       group dr[:group]
       owner dr[:user]
       mode '0600'
@@ -50,7 +50,7 @@ action :create do
 
     tpl = template "#{dr[:path]}/config/config.env" do
       source 'config.env.erb'
-      cookbook dr[:templates_cookbook]
+      cookbook dr[:template_cookbook]
       group dr[:group]
       owner dr[:user]
       mode '0700'
@@ -61,7 +61,7 @@ action :create do
   when 'docker'
     tpl = template "#{dr[:path]}/config/#{dr[:name]}.env" do
       source 'config_docker.env.erb'
-      cookbook dr[:templates_cookbook]
+      cookbook dr[:template_cookbook]
       group dr[:group]
       owner dr[:user]
       mode '0700'
@@ -83,7 +83,7 @@ def registry_resources
     group: new_resource.group,
     listen_ip: new_resource.listen_ip,
     listen_port: new_resource.listen_port,
-    templates_cookbook: new_resource.templates_cookbook,
+    template_cookbook: new_resource.template_cookbook,
     storage_driver: new_resource.storage_driver,
     install_type: new_resource.install_type,
     storage_driver_options: storage_driver_options

@@ -82,7 +82,7 @@ action :enable do
       group: dr[:group],
       docker_image: dr[:docker_image]
     )
-    cookbook  dr[:templates_cookbook]
+    cookbook  dr[:template_cookbook]
     default_logger true
     run_template_name dr[:run_template]
     log_template_name dr[:log_template]
@@ -101,7 +101,7 @@ def registry_resources                              #                 [:docker_r
     path: new_resource.path,
     user: new_resource.user,
     group: new_resource.group,
-    templates_cookbook: new_resource.templates_cookbook,
+    template_cookbook: new_resource.template_cookbook,
     version: new_resource.version,
     install_type: new_resource.install_type,
     storage_driver: new_resource.storage_driver,

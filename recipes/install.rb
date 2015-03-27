@@ -6,6 +6,8 @@
 # Copyright 2014, Paul Czarkowski
 #
 
+include_recipe 'docker::default'
+
 docker_registry_instance 'registry' do
   version 'latest'
   docker_image 'registry'

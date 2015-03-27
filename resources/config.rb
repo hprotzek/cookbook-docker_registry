@@ -16,6 +16,6 @@ attribute :version, kind_of: String, default: node[:docker_registry][:version]
 attribute :install_type, kind_of: String, default: node[:docker_registry][:install_type]
 attribute :listen_ip, kind_of: String, default: node[:docker_registry][:listen_ip]
 attribute :listen_port, kind_of: String, default: node[:docker_registry][:listen_port]
-attribute :templates_cookbook, kind_of: String, default: node[:docker_registry][:templates_cookbook]
+attribute :template_cookbook, kind_of: String, default: node[:docker_registry][:template_cookbook]
 attribute :storage_driver, kind_of: String, default: node[:docker_registry][:storage_driver]
 attribute :storage_driver_options, kind_of: Hash
