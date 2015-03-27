@@ -20,5 +20,5 @@ end
 docker_registry_service 'registry' do
   version 'latest'
   subscribes :restart, 'docker_registry_config[registry]', :delayed
-  action [:enable]
+  action [:enable, :start]
 end
